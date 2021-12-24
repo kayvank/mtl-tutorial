@@ -1,0 +1,106 @@
+cabal-version: 2.2
+
+-- This file has been generated from package.yaml by hpack version 0.34.4.
+--
+-- see: https://github.com/sol/hpack
+
+name:           monad-transformers
+version:        0.0.1.0
+synopsis:       Project synopsis
+description:    See README at <https://github.com/kayvank/monad-transformers
+category:       Package.Category
+homepage:       https://github.com/kayvank/monad-transformers#readme
+bug-reports:    https://github.com/kayvank/monad-transformers/issues
+author:         kayvank
+maintainer:     kayvank
+license:        BSD-3-Clause
+build-type:     Simple
+
+source-repository head
+  type: git
+  location: https://github.com/kayvank/monad-transformers
+
+library
+  exposed-modules:
+      Effect.Poly
+      Trans.Transformers
+  other-modules:
+      Paths_monad_transformers
+  hs-source-dirs:
+      src
+  default-extensions:
+      DataKinds
+      FlexibleContexts
+      GADTs
+      LambdaCase
+      PolyKinds
+      RankNTypes
+      ScopedTypeVariables
+      TemplateHaskell
+      TypeApplications
+      TypeOperators
+      TypeFamilies
+  build-depends:
+      base >=4.11 && <5
+    , containers
+    , mtl
+    , polysemy
+    , text
+  default-language: Haskell2010
+
+executable monad-transformers-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_monad_transformers
+  hs-source-dirs:
+      app
+  default-extensions:
+      DataKinds
+      FlexibleContexts
+      GADTs
+      LambdaCase
+      PolyKinds
+      RankNTypes
+      ScopedTypeVariables
+      TemplateHaskell
+      TypeApplications
+      TypeOperators
+      TypeFamilies
+  build-depends:
+      base >=4.11 && <5
+    , containers
+    , monad-transformers
+    , mtl
+    , polysemy
+    , text
+  default-language: Haskell2010
+
+test-suite monad-transformers-test
+  type: exitcode-stdio-1.0
+  main-is: Main.hs
+  other-modules:
+      Paths_monad_transformers
+  hs-source-dirs:
+      test
+  default-extensions:
+      DataKinds
+      FlexibleContexts
+      GADTs
+      LambdaCase
+      PolyKinds
+      RankNTypes
+      ScopedTypeVariables
+      TemplateHaskell
+      TypeApplications
+      TypeOperators
+      TypeFamilies
+  ghc-options: -Wall -threaded -fplugin=Polysemy.Plugin
+  build-depends:
+      base >=4.11 && <5
+    , containers
+    , hedgehog
+    , monad-transformers
+    , mtl
+    , polysemy
+    , text
+  default-language: Haskell2010

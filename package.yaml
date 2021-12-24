@@ -1,0 +1,52 @@
+name: monad-transformers
+version: 0.0.1.0
+synopsis: Project synopsis
+description: See README at <https://github.com/kayvank/monad-transformers
+author: kayvank
+github: kayvank/monad-transformers
+category: Package.Category
+license: BSD-3-Clause
+
+default-extensions:
+  - DataKinds
+  - FlexibleContexts
+  - GADTs
+  - LambdaCase
+  - PolyKinds
+  - RankNTypes
+  - ScopedTypeVariables
+  - TemplateHaskell
+  - TypeApplications
+  - TypeOperators
+  - TypeFamilies
+
+dependencies:
+  - base >=4.11 && < 5
+  - mtl
+  - containers
+  - text
+  - polysemy
+
+
+  - base >=4.11 && < 5
+library:
+  source-dirs: src
+
+executables:
+  monad-transformers-exe:
+    source-dirs: app
+    main: Main.hs
+    dependencies:
+      - monad-transformers
+
+tests:
+  monad-transformers-test:
+    source-dirs: test
+    main: Main.hs
+    ghc-options:
+      - -Wall
+      - -threaded
+      - -fplugin=Polysemy.Plugin
+    dependencies:
+      - monad-transformers
+      - hedgehog
