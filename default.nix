@@ -32,8 +32,11 @@ let
     ];
     withHoogle = true;
 
+  ## this is hack, untill I give up on emacs-doom or nixos machine
+  ## emacs doom on my nix-os machine caches, but not load the nix-shell env.  this makes the haskell lsp useless
+
     shellHook = ''
-        ~/.emacs.d/bin/doom env
+        [ -d ~/.emacs.d/bin/doom ] && ~/.emacs.d/bin/doom env
       '';
 
   };
